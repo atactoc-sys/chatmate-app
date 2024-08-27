@@ -1,0 +1,79 @@
+.addUser {
+  width: 400px;
+  height: 250px;
+  padding: 30px;
+  /* background-color: #cc313d; */
+  background-color: #f7c5cc;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: stretch;
+  box-shadow: 4px 4px 12px 0px #00000056, inset 4px 4px 12px 0px #ffffff52;
+
+  z-index: 2;
+  form {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+
+    input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: #cc313d;
+    }
+    .searchButton {
+      background-color: transparent;
+      color: #df6589ff;
+    }
+    .searchButton:hover {
+      color: #3c1053ff;
+    }
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+    .detail {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      .userPhoto {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+      }
+      p {
+        color: #301728ff;
+        font-size: 15px;
+        letter-spacing: 1px;
+      }
+    }
+    .adduserbutton {
+      background-color: transparent;
+      color: #df6589ff;
+    }
+    .adduserbutton:hover {
+      color: #3c1053ff;
+    }
+  }
+}

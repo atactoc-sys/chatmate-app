@@ -1,0 +1,58 @@
+.user-details {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  animation: slideInFromTop 1s ease-out 1s forwards;
+
+  transform: translateY(-200px);
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .user > h3 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #a07855ff;
+    text-shadow: 2px 4px 6px #d4b996ff;
+  }
+  .user > div {
+    box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+    height: 50px;
+    width: 50px;
+  }
+
+  .actionIcons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+      height: 30px;
+      width: 30px;
+      svg {
+        color: #df6589ff;
+      }
+    }
+    button:hover {
+      svg {
+        color: #3c1053ff;
+      }
+    }
+  }
+}
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

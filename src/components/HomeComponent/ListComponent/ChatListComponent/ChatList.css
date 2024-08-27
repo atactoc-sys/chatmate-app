@@ -1,0 +1,205 @@
+.chat-list {
+  flex: 1;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding-bottom: 150px;
+
+  animation: slideInFromBottom 1s ease-out 2s forwards;
+
+  transform: translateY(600px);
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    .searchbar {
+      background-color: #f7c5cc;
+      box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+      border-radius: 8px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+
+      svg {
+        color: #2f3c7e;
+      }
+
+      input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #cc313d;
+        font-size: 15px;
+        letter-spacing: 1px;
+        flex: 1;
+      }
+    }
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #d32e5eff;
+    animation: viewAnimation linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+
+    div {
+      box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+    }
+
+    .texts {
+      box-shadow: none;
+
+      h4 {
+        color: #301728ff;
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+      p {
+        color: #9f6b99ff;
+        font-size: 15px;
+        font-style: oblique;
+      }
+    }
+  }
+}
+.search > button {
+  background-color: #f7c5cc;
+  backdrop-filter: blur(15px);
+  color: #2f3c7e;
+  border-radius: 8px;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+}
+
+.search > button:hover {
+  background-color: #df6589ff;
+  color: #3c1053ff;
+  box-shadow: 2px 2px 6px 0px #00000056;
+
+  svg {
+    scale: 1.2;
+    animation: rotateSvg 0.5s ease-in-out;
+  }
+}
+@keyframes rotateSvg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.chat-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.chat-list::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+  background-color: #962e2a;
+}
+@keyframes viewAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px) scale(0.5) skewX(-15deg) perspective(600px)
+      rotateY(15deg);
+    clip-path: inset(100% 100% 0 0);
+    filter: blur(10px) brightness(0.5);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translateX(-75px) scale(0.65) skewX(-10deg) perspective(600px)
+      rotateY(10deg);
+    clip-path: inset(75% 75% 0 0);
+    filter: blur(7px) brightness(0.7);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(-50px) scale(0.8) skewX(-5deg) perspective(600px)
+      rotateY(5deg);
+    clip-path: inset(50% 50% 0 0);
+    filter: blur(5px) brightness(0.85);
+  }
+  75% {
+    opacity: 0.9;
+    transform: translateX(-25px) scale(0.9) skewX(-2deg) perspective(600px)
+      rotateY(2deg);
+    clip-path: inset(25% 25% 0 0);
+    filter: blur(2px) brightness(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px) scale(1) skewX(0deg) perspective(600px)
+      rotateY(0deg);
+    clip-path: inset(0 0 0 0);
+    filter: blur(0px) brightness(1);
+  }
+}
+@keyframes listHover {
+  from {
+    margin-left: -40px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes listHoverOut {
+  0% {
+    margin-left: 0;
+
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(180deg);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    margin-left: -40px;
+    transform: rotate(180deg);
+  }
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+}
+
+.item svg {
+  display: inline-block;
+  opacity: 0;
+  transition: margin-left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.item:hover svg {
+  animation: listHover 0.5s ease-in-out forwards;
+}
+
+.item:not(:hover) svg {
+  animation: listHoverOut 1s ease-in-out forwards;
+}
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(600px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

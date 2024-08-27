@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  height: 100vh;
+}
+.homeComponent {
+  height: 90vh;
+  width: 100vw;
+  background-color: #f7c5cc;
+  color: #cc313d;
+  backdrop-filter: blur(5px) saturate(140%);
+  display: flex;
+}

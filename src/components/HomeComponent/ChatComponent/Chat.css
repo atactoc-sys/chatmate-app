@@ -1,0 +1,251 @@
+.chat {
+  flex: 2;
+
+  border-left: 1px solid #d32e5eff;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(1000px); /* Start position off-screen to the right */
+  animation: chatAnimate 0.5s ease-in-out forwards;
+
+  .up {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f525485e;
+
+    .user {
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      div {
+        box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+      }
+      .details {
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        h4 {
+          font-size: 22px;
+          font-weight: 500;
+          letter-spacing: 1px;
+          color: #301728ff;
+        }
+        p {
+          font-size: 12px;
+          color: #00539cff;
+        }
+      }
+    }
+    .icons {
+      display: flex;
+      margin-right: 20px;
+      gap: 10px;
+
+      button {
+        box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+        height: 30px;
+        width: 30px;
+        svg {
+          color: #df6589ff;
+        }
+      }
+      button:hover {
+        svg {
+          color: #3c1053ff;
+        }
+      }
+    }
+  }
+
+  .middle {
+    padding: 20px;
+    flex: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .message {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 5px;
+      max-width: 400px;
+      animation: viewAnimateOne linear;
+      animation-timeline: view();
+      animation-range: entry 0 cover 20%;
+      &.our {
+        align-self: flex-end;
+
+        .texts {
+          p {
+            font-size: 15px;
+            padding: 10px 20px;
+            background-color: #dbbea1ff;
+            color: #a37b73ff;
+            box-shadow: 2px 2px 6px 0px #00000056,
+              inset 2px 2px 6px 0px #ffffff52;
+            border-radius: 8px;
+          }
+        }
+      }
+      .texts {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        img {
+          width: 100%;
+          height: 250px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+
+        p {
+          font-size: 15px;
+          letter-spacing: 1px;
+          padding: 20px;
+          background-color: #3e282bff;
+          color: #d34f73ff;
+          box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+          border-radius: 8px;
+          animation: viewAnimateOne linear;
+          animation-timeline: view();
+          animation-range: entry 0 cover 20%;
+        }
+        span {
+          font-size: 12px;
+          color: #002c54;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+  .down {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid #f525485e;
+    .barContent {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 5px;
+      box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+      border-radius: 8px;
+
+      .picker {
+        position: absolute;
+        bottom: 60px;
+        left: 40px;
+      }
+
+      button {
+        svg {
+          color: #df6589ff;
+        }
+      }
+      button:hover {
+        svg {
+          color: #3c1053ff;
+        }
+      }
+      input {
+        flex: 1;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #cc313d;
+
+        font-size: 15px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+.down > button {
+  box-shadow: 2px 2px 6px 0px #00000056, inset 2px 2px 6px 0px #ffffff52;
+  background-color: transparent;
+  background-color: #f7c5cc;
+  color: #2f3c7e;
+  border-radius: 8px;
+  padding: 13px 15px;
+}
+.down > button:hover {
+  background-color: #2f3c7e;
+  color: #f7c5cc;
+  box-shadow: 2px 2px 6px 0px #00000056;
+}
+.barContent > button > svg {
+  color: #2f3c7e;
+}
+
+.middle::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.middle::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+.middle::-webkit-scrollbar-thumb {
+  background-color: #962e2a;
+}
+@keyframes viewAnimateOne {
+  from {
+    opacity: 0;
+    scale: 0;
+    clip-path: inset(100% 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes viewAnimateTwo {
+  from {
+    opacity: 0;
+    scale: 0;
+    clip-path: inset(100% 0 0 100%);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+.our {
+  animation: viewAnimateTwo linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 20%;
+  p {
+    animation: viewAnimateTwo linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 20%;
+  }
+}
+/* Drawer container */
+.drawerContent {
+  background-color: #f7c5cc;
+  height: 100vh;
+}
+@keyframes chatAnimate {
+  from {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
